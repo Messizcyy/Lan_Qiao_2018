@@ -251,35 +251,38 @@ void key_proc(void)
 		}
 	}	
 	
-	switch(Read_Key())
+	if(lcd_index != 0)
 	{
-		case 2:	
-			count_jia++;	
-			if(count_jia >= 17)	
-			{
-				switch(which_para)
+		switch(Read_Key())
+		{
+			case 2:	
+				count_jia++;	
+				if(count_jia >= 17)	
 				{
-					case 0:	if(price_1 < 10)	price_1+=0.01;	break;
-					case 1:	if(price_2 < 10)	price_2+=0.01;	break;
-					case 2:	if(price_3 < 10)	price_3+=0.01;	break;
-				}	
-			}
-			break;
-			
-		case 3:	
-			count_jian++;
-			if(count_jian >= 17)	
-			{
-				switch(which_para)
+					switch(which_para)
+					{
+						case 0:	if(price_1 < 10)	price_1+=0.01;	break;
+						case 1:	if(price_2 < 10)	price_2+=0.01;	break;
+						case 2:	if(price_3 < 10)	price_3+=0.01;	break;
+					}	
+				}
+				break;
+
+			case 3:	
+				count_jian++;
+				if(count_jian >= 17)	
 				{
-					case 0:	if(price_1 >= 0.001)	price_1-=0.01;	if(price_1<0)	price_1 = -price_1;	break;
-					case 1:	if(price_2 >= 0.001)	price_2-=0.01;	if(price_2<0)	price_2 = -price_2;	break;
-					case 2:	if(price_3 >= 0.001)	price_3-=0.01;	if(price_3<0)	price_3 = -price_3;	break;
-				}			
-			}
-			break;
-				
-		case 0:	count_jia=0;	count_jian=0;	break;
+					switch(which_para)
+					{
+						case 0:	if(price_1 >= 0.001)	price_1-=0.01;	if(price_1<0)	price_1 = -price_1;	break;
+						case 1:	if(price_2 >= 0.001)	price_2-=0.01;	if(price_2<0)	price_2 = -price_2;	break;
+						case 2:	if(price_3 >= 0.001)	price_3-=0.01;	if(price_3<0)	price_3 = -price_3;	break;
+					}			
+				}
+				break;
+
+			case 0:	count_jia=0;	count_jian=0;	break;
+		}
 	}
 	
 }
